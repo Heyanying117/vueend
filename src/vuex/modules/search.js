@@ -1,8 +1,8 @@
 import {RECEVE_HOTSEARCH} from '../mutation_types'
-import {reqHome} from '../../api'
+import {reqSearchInitialData} from '../../api'
 const state={
 
-    hotSearch:{}
+    hotSearch:[]
 
 }
 const mutations={
@@ -12,7 +12,7 @@ const mutations={
 }
 const actions={
    async getHome({commit}){
-        const result = await reqHome('/search')
+        const result = await reqSearchInitialData('/search')
         commit(RECEVE_HOTSEARCH,result.data)
     }
 

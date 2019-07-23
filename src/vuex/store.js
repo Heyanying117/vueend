@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 /* 引入自定文件 */
 import category from './modules/category'
 import search from './modules/search'
+import things from './modules/things'
 import mutations from './mutations'
 import actions from './actions'
 import getters from './getters'
@@ -18,6 +19,7 @@ export default new Vuex.Store({
     getters,
     modules:{
         category,
-        search
+        search,
+        things
     }
 })

@@ -9,8 +9,8 @@
       <span class="text_color" :class="this.$route.path ==='/category' ? 'text_color_active':'text_color'">分类</span>
     </li>
     <li @click="goto('/things')">
-      <span class="foot_icon" :class="this.$route.path === '/things' ? 'icon-fabric-active': 'icon-fabric'"></span>
-      <span class="text_color" :class="this.$route.path ==='/things' ? 'text_color_active':'text_color'">织物</span>
+      <span class="foot_icon" :class="/things/.test(this.$route.path) ? 'icon-fabric-active': 'icon-fabric'" ></span>
+      <span class="text_color" :class="/things/.test(this.$route.path) ? 'text_color_active':'text_color'">织物</span>
     </li>
     <li @click="goto('/shopcard')">
       <span class="foot_icon" :class="this.$route.path === '/shopcard' ? 'icon-shop-active': 'icon-shop'"></span>

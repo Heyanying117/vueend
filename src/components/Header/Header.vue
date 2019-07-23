@@ -1,11 +1,11 @@
 <template>
   <div class="header_box">
     <section class="header">
-        <i class="iconfont icon-shouye"></i>
+        <i class="iconfont icon-shouye" @click="goto('/home')"></i>
         <slot name="title"></slot>
         <div class="sousuo-shop">
-            <i class="iconfont icon-sousuo"></i>
-            <i class="iconfont icon-gouwuche"></i>
+            <i class="iconfont icon-sousuo" @click="goto('/search')"></i>
+            <i class="iconfont icon-gouwuche" @click="goto('/shopCard')"></i>
         </div>
     </section>
   </div>
@@ -13,6 +13,11 @@
 
 <script type="text/ecmascript-6">
   export default {
+    methods:{
+      goto(path){
+        this.$router.push(path)
+      }
+    }
   }
 </script>
 

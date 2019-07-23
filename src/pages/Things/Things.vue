@@ -3,7 +3,7 @@
       <Header>
           <div slot="title" class="tab">
             
-              <div class="item active">
+              <div class="item ">
                 <!-- <a href="##">发现</a> -->
                 <router-link to="/things/find" replace>发现</router-link>
               </div>
@@ -12,6 +12,7 @@
                 <router-link to="/things/choose" replace>甄选家</router-link>
               </div>
           </div>
+          
       </Header>
       <router-view />
     </section>
@@ -19,11 +20,13 @@
 
 <script type="text/ecmascript-6">
   import Header from '../../components/Header/Header.vue'
- 
+  import Find from '../../pages/Things/Find.vue'
+  import Choose from '../../pages/Things/Choose.vue'
   export default {
     components: {
       Header,
-     
+      Find,
+      Choose
     }
   }
 </script>

@@ -9,8 +9,8 @@
      </header>
      <section class="hotsousuo">
         <div class="title">热门搜索</div>
-        <ul class="sousuoList" v-if="hotSearch.kingKongModule">
-          <li v-for="(item,index) in hotSearch.kingKongModule.kingKongList" :key="index" :class="{active:currentIndex===index}" @click="handlecolor(index)">{{item.text}}</li>
+        <ul class="sousuoList">
+          <li v-for="(item,index) in hotSearch.hotKeywordVOList" :key="index" :class="{active:currentIndex===index}" @click="handlecolor(index)">{{item.keyword}}</li>
           
         </ul>
      </section>

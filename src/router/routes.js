@@ -28,6 +28,7 @@ export default [
         meta:{
           isshowFoot:true
         },
+        
         children:[
           {
             path:'/things/find',
@@ -44,7 +45,7 @@ export default [
             }
           },
           {
-            path: '/things/find',
+            path: '/things',
             redirect: '/things/find'
           }
 
@@ -57,20 +58,20 @@ export default [
           isshowFoot:true
         }
       },
-      {
-        path:'/person',
-        component:Person,
-        meta:{
-          isshowFoot:true
-        }
-      },
+      
       {
         path:'/search',
         component:Search,
       },
       {
         path: '/login',
-        component: Login
+        component: Login,
+        
+      },
+       
+      {
+        path:'/person',
+        component:Person
       },
       {
         path: '/',
