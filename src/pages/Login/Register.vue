@@ -7,33 +7,37 @@
      </Header>
      <section class="phone">
         <div class="logo">
-            <img src="//yanxuan.nosdn.127.net/bd139d2c42205f749cd4ab78fa3d6c60.png" alt="">
+            手机号注册
         </div>
         <div class="lableLogin">
             <div class="loginItem">
               
-              <input class="myinput" type="text" placeholder="请输入用户名" v-model="username" @blur="loseFocus" maxlength="11"/>
-              <div class="chahao" @click="handelchahao" v-if="username">X</div>
+              <input class="myinput" type="text" placeholder="请输入用户名" v-model="phone"  />
+              <div class="chahao" @click="handelchahao" v-if="phone">X</div>
             </div>
             <div class="loginItem">
               
-              <input class="myinput" type="password" placeholder="请输入短信验证码" v-model="code"  @blur="passwordBlur" />
+              <input class="myinput" type="password" placeholder="请输入短信验证码" v-model="codePhone" />
               <div class="yanzheng">获取验证码</div>
             </div>
-            <!-- 错误提示 -->
-            <div class="err" v-show="errorphone">{{errorphone}}</div>
-            <div class="answer">
+            <div class="loginItem">
               
-              <span>遇到问题了吗?</span>
-              <span>使用密码验证登录</span>
+              <input class="myinput" type="text" placeholder="请输入密码" v-model="mima" />
+              <div class="chahao" @click="handelchahao" v-if="phone">X</div>
             </div>
+            
             <div class="loginButton">
-              <a href="javascript:;" @click="loginD">登录</a>
-              <!-- <a href="javascript:;">其他方式登录</a> -->
-              <router-link to='/person'>其他方式登录</router-link>
+              <a href="javascript:;">注册</a>
+           
+            </div>
+            <div class="answer">
+              <input type="checkbox" class="check">
+              <a href="javascript:;">《服务条款》</a>和
+              <a href="javascript:;">《网易隐私政策》</a>
             </div>
             <div class="zhuce">
-              <a href="##">注册账号></a>
+              
+              <router-link to="/loginMail">邮箱注册账号></router-link>
             </div>
         </div>
      </section>
@@ -42,14 +46,13 @@
 
 <script type="text/ecmascript-6">
 import Header from '../../components/Header/Header.vue'
-
   export default {
      data(){
       return{
-        username:'',//初始化用户名为空
-        code:'',
-        errorphone:'',//错误的电话号码
-        denglu:''
+        phone:'',//初始化手机号为空
+        mima:'',
+        codePhone:''
+        
       }
     },
     components:{
@@ -57,37 +60,9 @@ import Header from '../../components/Header/Header.vue'
     },
     methods:{
       handelchahao(){
-        this.username=''
-        this.errorphone = ''
+        this.phone=''
       },
-      loseFocus(){
-       
-        if(!/^1[345678]\d{9}$/.test(this.username.trim()) && !this.username){
-          this.errorphone='输入不正确'
-          
-        }else{
-          this.errorphone = ''
-          
-        }
-        
-      },
-    //验证码
-      passwordBlur(){
-        if(!/^\d{6}$/.test(this.code.trim() && this.code)){
-          this.errorphone='输入不正确'
-       
-         }else{
-          this.errorphone = ''
-          
-        }
-      },
-      loginD(){
-        if(this.code&& this.username ){
-          alert('登录成功跳转页面')
-        }else{
-          alert('请输入用户名和密码')
-        }
-      }
+     
     }
   }
   
@@ -117,10 +92,8 @@ import Header from '../../components/Header/Header.vue'
     .phone
       
       .logo
-        padding-top 120px
-        img 
-          width 240px
-          height 90px
+        padding-top 90px
+        font-size 40px
       .lableLogin
         padding-top 120px
         .loginItem
@@ -145,12 +118,11 @@ import Header from '../../components/Header/Header.vue'
             color #333
         .answer
           padding 20px 70px 0 70px
-          display flex
-          justify-content space-between
+          
+          
           color #999
-        .err
-          padding-left 70px
-          color #b4282d
+          a
+            color #007AFF
         .loginButton
           padding 40px 70px 0 70px
           a
@@ -172,6 +144,8 @@ import Header from '../../components/Header/Header.vue'
           height 80px
           line-height 80px
           text-align center
-          color #000
-          padding-bottom 328px
+          
+          padding-bottom 515px
+          a
+            color #333
 </style>

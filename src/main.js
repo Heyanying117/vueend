@@ -6,6 +6,8 @@ import store from './vuex/store'
 import 'lib-flexible/flexible'
 import './mock/mockServer.js'
 
+
+
 Vue.config.productionTip = false
 
 new Vue({

@@ -7,6 +7,8 @@ import Search from '../pages/search/search.vue'
 import Login from '../pages/Login/Login.vue'
 import Find from '../pages/Things/Find.vue'
 import Choose from '../pages/Things/Choose.vue'
+import LoginMail from '../pages/Login/LoginMail.vue'
+import Register from '../pages/Login/Register.vue'
 export default [
     {
         path:'/home',
@@ -72,6 +74,14 @@ export default [
       {
         path:'/person',
         component:Person
+      },
+      {
+        path:'/loginmail',
+        component:LoginMail
+      },
+      {
+        path:'/register',
+        component:Register
       },
       {
         path: '/',

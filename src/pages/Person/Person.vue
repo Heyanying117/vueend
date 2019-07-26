@@ -17,11 +17,18 @@
           <i class="iconfont icon-shouji"></i>
           <span>手机号登陆</span>
         </router-link>
-         <a href="###">
+        <!--  <a href="###">
             <i class="iconfont icon-youxiang"></i>
             <span>邮箱登陆</span>
-        </a>
-        <a href="##">手机号快速注册></a>
+        </a> -->
+        <router-link to="/loginmail">
+          <i class="iconfont icon-youxiang"></i>
+          <span>邮箱登陆</span>
+        </router-link>
+        
+        <router-link to="/register">
+          手机号快速注册>
+        </router-link>
     </div>
     <ul class="otherlogin">
       <li>

@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <div class="loginMail">
       <Header>
         <div slot="title" class="logo">
             <div class="logoImg"></div>
@@ -12,28 +12,25 @@
         <div class="lableLogin">
             <div class="loginItem">
               
-              <input class="myinput" type="text" placeholder="请输入用户名" v-model="username" @blur="loseFocus" maxlength="11"/>
-              <div class="chahao" @click="handelchahao" v-if="username">X</div>
+              <input class="myinput" type="text" placeholder="邮箱账号" v-model="mailname" @blur="mailYan" />
+              <div class="chahao" @click="handelchahao" v-show="mailname">X</div>
             </div>
             <div class="loginItem">
               
-              <input class="myinput" type="password" placeholder="请输入短信验证码" v-model="code"  @blur="passwordBlur" />
-              <div class="yanzheng">获取验证码</div>
+              <input class="myinput" type="password" placeholder="密码" v-model="pwd" />
             </div>
-            <!-- 错误提示 -->
-            <div class="err" v-show="errorphone">{{errorphone}}</div>
+             <!-- 错误提示 -->
+            <div class="err" v-show="errormail">{{errormail}}</div> 
             <div class="answer">
-              
-              <span>遇到问题了吗?</span>
-              <span>使用密码验证登录</span>
+              <span>注册账号</span>
+              <span>忘记密码</span>
             </div>
             <div class="loginButton">
-              <a href="javascript:;" @click="loginD">登录</a>
-              <!-- <a href="javascript:;">其他方式登录</a> -->
+              <a href="javascript:;">登录</a>
               <router-link to='/person'>其他方式登录</router-link>
             </div>
             <div class="zhuce">
-              <a href="##">注册账号></a>
+              <a href="javascript:;">注册账号></a>
             </div>
         </div>
      </section>
@@ -42,14 +39,12 @@
 
 <script type="text/ecmascript-6">
 import Header from '../../components/Header/Header.vue'
-
   export default {
      data(){
       return{
-        username:'',//初始化用户名为空
-        code:'',
-        errorphone:'',//错误的电话号码
-        denglu:''
+        mailname:'',//初始化用户名为空
+        pwd:'',
+        errormail:''
       }
     },
     components:{
@@ -57,35 +52,11 @@ import Header from '../../components/Header/Header.vue'
     },
     methods:{
       handelchahao(){
-        this.username=''
-        this.errorphone = ''
+        this.mailname=''
       },
-      loseFocus(){
-       
-        if(!/^1[345678]\d{9}$/.test(this.username.trim()) && !this.username){
-          this.errorphone='输入不正确'
-          
-        }else{
-          this.errorphone = ''
-          
-        }
-        
-      },
-    //验证码
-      passwordBlur(){
-        if(!/^\d{6}$/.test(this.code.trim() && this.code)){
-          this.errorphone='输入不正确'
-       
-         }else{
-          this.errorphone = ''
-          
-        }
-      },
-      loginD(){
-        if(this.code&& this.username ){
-          alert('登录成功跳转页面')
-        }else{
-          alert('请输入用户名和密码')
+      mailYan(){
+        if(!/^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g.test(this.mailname.trim()) && this.mailname){
+          this.errormail='请输入正确的邮箱'
         }
       }
     }
@@ -94,7 +65,7 @@ import Header from '../../components/Header/Header.vue'
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-  .login
+  .loginMail
     background #fff
     
     .logo
@@ -133,24 +104,19 @@ import Header from '../../components/Header/Header.vue'
             height 90px
             outline none
             font-size 28px
-          .chahao,.yanzheng
+          .chahao
             position absolute
             right 90px
             bottom 25px
             color #999
-          .yanzheng
-            border 1px solid #333
-            padding 18px 20px
-            border-radius 5px
-            color #333
+        .err
+          padding-left 70px
+          color #b4282d
         .answer
           padding 20px 70px 0 70px
           display flex
           justify-content space-between
           color #999
-        .err
-          padding-left 70px
-          color #b4282d
         .loginButton
           padding 40px 70px 0 70px
           a
@@ -175,3 +141,4 @@ import Header from '../../components/Header/Header.vue'
           color #000
           padding-bottom 328px
 </style>
+

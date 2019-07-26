@@ -74,13 +74,7 @@ import BScroll from "better-scroll"
         this.$router.push('/search')
       }
     },
-    /* watch:{
-      category(){
-        new BScroll(this.$refs.we,{
-          click: true
-        })
-      }
-    } */
+  
   }
 </script>
 

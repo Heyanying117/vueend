@@ -2,12 +2,18 @@
   <div class="searchBox">
      <header class="heade">
         <span class="search_icon"></span>
-        <input type="text" class="input" placeholder="扫拖两用机器人" v-model="searchContent">
+        <input type="text" class="input" placeholder="扫拖两用机器人" v-model="searchContent" @input="search">
          
          <div class="delete" v-show="searchContent" @click="handlechahao">x</div>
         <span class="cancel" @click="toHome">取消</span>
      </header>
-     <section class="hotsousuo">
+     <div class="keyshow" v-if="searchContent">
+       
+        <ul>
+          <li class="leyshowList" v-for="(item,index) in reqkeyword" :key="index">{{item}}</li>
+        </ul>
+     </div>
+     <section class="hotsousuo" v-show="!searchContent">
         <div class="title">热门搜索</div>
         <ul class="sousuoList">
           <li v-for="(item,index) in hotSearch.hotKeywordVOList" :key="index" :class="{active:currentIndex===index}" @click="handlecolor(index)">{{item.keyword}}</li>
@@ -18,12 +24,15 @@
 </template>
 
 <script type="text/ecmascript-6">
+
+  import{reqThingsSearch} from '../../api'
   import {mapState} from 'vuex'
   export default {
     data(){
       return{
         searchContent:'',
-        currentIndex:0
+        currentIndex:0,
+        reqkeyword:[]
       }
     },
     computed:{
@@ -44,7 +53,16 @@
       },
       handlecolor(index){
         this.currentIndex = index
-      }
+      },
+     async search(){
+        const result = await reqThingsSearch(this.searchContent)
+        console.log(result)
+        if(result.code==='200'){
+          this.reqkeyword = result.data
+          /* console.log('1111111',this.reqkeyword) */
+        }
+      },
+      
     }
   }
 </script>
@@ -88,6 +106,22 @@
 
         .cancel
           font-size 28px 
+      .keyshow
+        width 100%
+        padding 30px 20px
+        background #ffffff
+        box-sizing border-box
+        
+        ul
+          display flex
+          flex-wrap wrap
+          padding 20px
+          li
+            padding 5px 10px
+            margin-right 15px
+            margin-bottom 15px
+            color #666
+            font-size 28px
       .hotsousuo
         width 100%
         background #fff        

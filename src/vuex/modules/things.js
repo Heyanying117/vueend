@@ -27,7 +27,7 @@ const actions= {
     },
     async getThingContent({commit}){
         const result = await reqThingscontent()
-            commit(RESERVE_THINGSCONTENT,result.data)
+        commit(RESERVE_THINGSCONTENT,result.data)
         
     }
 }
